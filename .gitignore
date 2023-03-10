@@ -1,0 +1,4 @@
+node_modules/*
+.env
+package-lock.json
+server_folder_for_Pat.zip
