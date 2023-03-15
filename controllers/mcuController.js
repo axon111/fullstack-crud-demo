@@ -30,13 +30,16 @@ async function deleteMcuCharacter(req, res) {
 async function updateMcuCharacter(req, res) {
     try {
         let updatedMcuCharacter = {
-            name: req.body.nane,
+            name: req.body.name,
             debut: req.body.debut,
             debutYear: req.body.debutYear
         }
 
-        Mcu.updateOne(
-            {name: req.params.name},
+
+        console.log("About to update...: " + updatedMcuCharacter.name);
+
+        await Mcu.updateOne(
+            {name: req.body.name},
             { $set: updatedMcuCharacter},
             {upsert: true}
         );
